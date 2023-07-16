@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from '@mui/material'; // Uses n
+import { useDispatch } from 'react-redux';
 
+import { getPosts } from './actions/posts';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
 import memories from './images/memories.png';
@@ -9,9 +11,14 @@ import { appStyle } from './styles.js';
 // //import useStyles from './styles';//
 
 const App = () => {
+    // //const classes = useStyles();//
     // using sx prop to style components
     const styles = appStyle;
-    // //const classes = useStyles();//
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getPosts());
+    }, [dispatch]);
 
     return (
         <Container maxwidth="lg">
