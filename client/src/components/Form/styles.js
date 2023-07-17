@@ -24,6 +24,6 @@ export const formStyle = {
     margin: '10px 0',
   },
   buttonSubmit: {
-    marginBottom: 10, 
+    marginBottom: '10px', // 10 will be multiplied by 8px (default spacing), so use ' px' to ensure 10px
   },
 };

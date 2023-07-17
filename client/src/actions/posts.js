@@ -16,15 +16,22 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
-// export const createPost = (post) => async (dispatch) => {
-//   try {
-//     const { data } = await api.createPost(post);
+/**
+ * 
+ * Create post action creator.
+ * 
+ * @param {object} post Post Data to be sent to the api.
+ * 
+ */
+export const createPost = (post) => async (dispatch) => {
+  try { 
+    const { data } = await api.createPost(post); // post api request sending post data
 
-//     dispatch({ type: CREATE, payload: data });
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
+    dispatch({ type: 'CREATE', payload: data }); // dispatch/return action
+  } catch (error) {
+    console.log(error.message); // log error
+  }
+};
 
 // export const updatePost = (id, post) => async (dispatch) => {
 //   try {
